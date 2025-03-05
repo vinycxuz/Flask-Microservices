@@ -1,4 +1,4 @@
-from Flask import Blueprint, jsonify
+from flask import Blueprint, jsonify
 from . import db
 from .models import Course
 
