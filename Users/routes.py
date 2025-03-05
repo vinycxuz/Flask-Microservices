@@ -21,3 +21,17 @@ def signup():
     response = jsonify(new_user.toDict())
     response.status_code = 200
     return response
+  
+
+@routes.route('/login', method=['GET','POST'])
+def login():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
+    user = User.query.filter_by(email=email).first()
+    if not user or not check_password_hash(user.password, password):
+        return None
+    login_user(user, remember=remember)
+    result = jsonify(user.toDict())
+    result.status_code = 200
+    return result
