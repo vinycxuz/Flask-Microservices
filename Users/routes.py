@@ -35,3 +35,11 @@ def login():
     result = jsonify(user.toDict())
     result.status_code = 200
     return result
+
+
+@routes.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return None
+
