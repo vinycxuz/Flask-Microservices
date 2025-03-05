@@ -23,7 +23,7 @@ def signup():
     return response
   
 
-@routes.route('/login', method=['GET','POST'])
+@routes.route('/login', methods=['GET','POST'])
 def login():
     email = request.form.get('email')
     password = request.form.get('password')
