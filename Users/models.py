@@ -10,9 +10,17 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(32), nullable=False)
 
 
-    def __init__(self, id, name, email, password):
-        self.id = id
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
+        
+    def toDict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "email": self.email
+        }
+    
+
 
