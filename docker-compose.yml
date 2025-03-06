@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  course-service:
+    build: ./Course  
+    ports:
+      - "5000:5000"  
+    volumes:
+      - ./Course/db.sqlite:/app/db.sqlite 
+
+  user-service:
+    build: ./Users   
+    ports:
+      - "5001:5000"  
+    volumes:
+      - ./Users/db.sqlite:/app/db.sqlite
