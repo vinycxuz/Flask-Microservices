@@ -8,7 +8,7 @@ routes = Blueprint('routes', __name__)
 @routes.route('/courses/title', methods=['GET'])
 def get_titles():
     courses = Course.query.all()
-    titles = [courses.title for course in courses]
+    titles = [course.title for course in courses]
     return jsonify({"titles": titles})
 
 

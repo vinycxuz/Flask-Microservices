@@ -14,7 +14,7 @@ def create_course_app():
 
     db.init_app(app)
     from .models import Course
-    #db.create_all(app=app)
+    db.create_all(app=app)
 
     from .routes import routes as route_blueprint
     app.register_blueprint(route_blueprint)
